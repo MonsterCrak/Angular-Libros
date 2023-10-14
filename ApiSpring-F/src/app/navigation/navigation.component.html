@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <!--a mat-list-item routerLink="/inicio/dashboard">Dashboard</a-->
+      <ng-container *ngFor="let enlace of enlaces">
+                <a mat-list-item  routerLink="{{enlace.ruta}}">{{enlace.descripcion}}</a>
+      </ng-container>
+
+      <mat-nav-list></mat-nav-list>
+      <a >
+        <button class="btn  mx-3" (click)="logout()" data-bs-toggle="dropdown">
+          <i class="fa-solid fa-right-from-bracket"></i> Log Out
+        </button>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>ApiSpring-F</span>
+    </mat-toolbar>
+    <!--Agregando dashboard-->
+    <router-outlet></router-outlet>
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
