@@ -20,6 +20,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LibrosComponent } from './vistas/libros/libros.component';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import {MatInputModule} from '@angular/material/input';
     MatMenuModule,
     FormsModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

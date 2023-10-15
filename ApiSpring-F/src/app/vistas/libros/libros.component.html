@@ -1,11 +1,50 @@
-<form class="example-form">
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <form class="example-form">
+
     <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi">
+      <mat-label>Titulo</mat-label>
+      <input matInput placeholder="Ingrese un titulo" value="">
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width">
-      <mat-label>Leave a comment</mat-label>
-      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      <mat-label>Autor</mat-label>
+      <input matInput placeholder="Ingrese un autor" value="">
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Genero</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let genero of genero" [value]="genero.id">
+          {{genero.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput placeholder="Ingrese una descripcion"></textarea>
+    </mat-form-field>
+
+    <label id="example-radio-group-label">Estado</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+      <mat-radio-button class="example-radio-button" *ngFor="let estado of estado" [value]="estado">
+        {{estado}}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <div class="button-upload">
+      <button type="button" mat-raised-button (click)="fileInputImage.click()">Imagen</button>
+      <input hidden (change)="onFileImage($event)" #fileInputImage type="file">
+      <span class="file-name-image">{{selectedImage?.name}}</span>
+    </div>
+
+    <br>
+
+    <div class="button-upload">
+      <button type="button" mat-raised-button (click)="fileInputDocument.click()">Archivo</button>
+      <input hidden (change)="onFileDocument($event)" #fileInputDocument type="file">
+      <span class="file-name-document">{{selectedDocument?.name}}</span>
+    </div>
+
   </form>
+</div>
