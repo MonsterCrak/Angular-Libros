@@ -1,19 +1,25 @@
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
   <form class="example-form">
 
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Usuario</mat-label>
+      <input matInput  type="text"  name="usuario"  [(ngModel)]="libro.usuario.id" >
+    </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>Titulo</mat-label>
-      <input matInput placeholder="Ingrese un titulo" value="">
+      <input matInput placeholder="Ingrese un titulo" type="text"  name="titulo" [(ngModel)]="libro.titulo">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Autor</mat-label>
-      <input matInput placeholder="Ingrese un autor" value="">
+      <input matInput type="text" placeholder="Ingrese un autor" name="autor" [(ngModel)]="libro.autor">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Genero</mat-label>
-      <mat-select>
+      <mat-select name="genero" [(ngModel)]="libro.genero.id" >
         <mat-option *ngFor="let genero of genero" [value]="genero.id">
           {{genero.nombre}}
         </mat-option>
@@ -22,11 +28,11 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Descripcion</mat-label>
-      <textarea matInput placeholder="Ingrese una descripcion"></textarea>
+      <textarea type="text" name="descripcion" [(ngModel)]="libro.descripcion" matInput placeholder="Ingrese una descripcion"></textarea>
     </mat-form-field>
 
     <label id="example-radio-group-label">Estado</label>
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" name="estado" [(ngModel)]="libro.estado">
       <mat-radio-button class="example-radio-button" *ngFor="let estado of estado" [value]="estado">
         {{estado}}
       </mat-radio-button>
@@ -45,6 +51,13 @@
       <input hidden (change)="onFileDocument($event)" #fileInputDocument type="file">
       <span class="file-name-document">{{selectedDocument?.name}}</span>
     </div>
+
+    <br>
+
+    <div class="example-button-row">
+      <button mat-flat-button color="primary" (click)="registrar()">Registrar</button>
+    </div>
+    
 
   </form>
 </div>
