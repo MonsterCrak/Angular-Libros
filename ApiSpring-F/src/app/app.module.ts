@@ -22,6 +22,12 @@ import { LibrosComponent } from './vistas/libros/libros.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import { LibrospublicadosComponent } from './vistas/librospublicados/librospublicados.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from "@angular/material/sort";
+import { ListalibrosComponent } from './vistas/listalibros/listalibros.component';
+
 
 
 
@@ -33,7 +39,9 @@ import {MatRadioModule} from '@angular/material/radio';
     DashboardComponent,
     LoginComponent,
     InicioComponent,
-    LibrosComponent
+    LibrosComponent,
+    LibrospublicadosComponent,
+    ListalibrosComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +59,9 @@ import {MatRadioModule} from '@angular/material/radio';
     HttpClientModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule, MatPaginatorModule, MatSortModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

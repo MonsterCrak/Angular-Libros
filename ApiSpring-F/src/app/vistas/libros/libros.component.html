@@ -41,7 +41,7 @@
     <div class="button-upload">
       <button type="button" mat-raised-button (click)="fileInputImage.click()">Imagen</button>
       <input hidden (change)="onFileImage($event)" #fileInputImage type="file">
-      <span class="file-name-image">{{selectedImage?.name}}</span>
+      <span class="file-name-image">{{portada?.name}}</span>
     </div>
 
     <br>
@@ -49,7 +49,7 @@
     <div class="button-upload">
       <button type="button" mat-raised-button (click)="fileInputDocument.click()">Archivo</button>
       <input hidden (change)="onFileDocument($event)" #fileInputDocument type="file">
-      <span class="file-name-document">{{selectedDocument?.name}}</span>
+      <span class="file-name-document">{{archivo?.name}}</span>
     </div>
 
     <br>
