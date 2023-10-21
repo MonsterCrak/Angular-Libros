@@ -7,6 +7,9 @@ const USERNAME_KEY = 'AuthUsername';
 const AUTHORITIES_KEY = 'AuthAuthorities';
 const ENLACES_KEY = 'AuthEnlaces';
 
+const IDUSUARIO_KEY = 'AuthIdUsuario';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +33,16 @@ export class TokenService {
   public getUsername():string{
     return sessionStorage.getItem(USERNAME_KEY);
   }
+
+  public setIdUsuario(idUsuario: number): void {
+    window.sessionStorage.removeItem(IDUSUARIO_KEY);
+    window.sessionStorage.setItem(IDUSUARIO_KEY, idUsuario.toString());
+  }
+
+  public getIdUsuario(): number {
+    return +sessionStorage.getItem(IDUSUARIO_KEY);
+  }
+  
   public setAuthorities(authorities:string[]):void{
     window.sessionStorage.removeItem(AUTHORITIES_KEY)
     window.sessionStorage.setItem(AUTHORITIES_KEY,JSON.stringify(authorities));

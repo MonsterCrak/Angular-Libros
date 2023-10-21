@@ -5,6 +5,7 @@
     background-size: cover;
 }
 
+
 .container {
     margin-top: 4vh; /* Espacio en la parte superior */
     margin-bottom: 4vh; /* Espacio en la parte inferior */
@@ -24,6 +25,20 @@
     max-width: calc(20% - 2vh); /* Máximo ancho con margen entre las tarjetas */
 }
 
+
+.example-card img {
+  height: 35vh;
+  object-fit: cover; 
+  width: 100%; 
+}
+
+.actions-container {
+  margin-top: auto; /* Empuja los botones hacia la parte inferior */
+  display: flex;
+  justify-content: end; /* Alinea los botones a lo largo del eje principal (horizontal) */
+}
+
+
 @media (max-width: 1200px) {
     .example-card {
       flex: 0 1 calc(25% - 16px);
@@ -38,7 +53,7 @@
     }
   }
   
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     .example-card {
       flex: 0 1 calc(50% - 16px);
       max-width: calc(50% - 16px);

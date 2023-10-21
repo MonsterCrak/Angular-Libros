@@ -12,9 +12,12 @@ export class Libro {
     archivo: string
     portada: string
     registro: number
-    estado:number
+    estado:boolean
     usuario?: Usuario
     vistas? : Vistas
     favoritos?: Favoritos
     genero?: Genero
+    isLiked: boolean = false;
+    isFavorite: boolean = false;
+
 }

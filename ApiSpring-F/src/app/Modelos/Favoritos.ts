@@ -4,7 +4,7 @@ import { Usuario } from "./Usuario"
 export class Favoritos {
     id: number
     favorito: string
-    estado:number
+    estado:boolean
     Usuario:Usuario
     Libro:Libro
 }

@@ -27,6 +27,7 @@ export class LibrosService {
     formData.append('titulo', libro.titulo);
     formData.append('descripcion', libro.descripcion);
     formData.append('autor', libro.autor);
+    formData.append('estado', libro.estado? '1' : '0');
     formData.append('idGenero', libro.genero.id.toString());
     formData.append('idUsuario', libro.usuario.id.toString());
     console.log(formData);

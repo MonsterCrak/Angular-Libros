@@ -27,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from "@angular/material/sort";
 import { ListalibrosComponent } from './vistas/listalibros/listalibros.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -60,7 +61,10 @@ import { ListalibrosComponent } from './vistas/listalibros/listalibros.component
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatTableModule, MatPaginatorModule, MatSortModule
+    MatTableModule, 
+    MatPaginatorModule, 
+    MatSortModule,
+    MatFormFieldModule
 
   ],
   providers: [],

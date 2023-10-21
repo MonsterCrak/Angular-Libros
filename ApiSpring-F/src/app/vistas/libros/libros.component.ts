@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Genero } from 'src/app/Modelos/Genero';
 import { Libro } from 'src/app/Modelos/Libro';
 import { GeneroService } from 'src/app/services/genero.service';
 import { LibrosService } from 'src/app/services/libros.service';
+import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
 
 
@@ -25,14 +27,16 @@ export class LibrosComponent implements OnInit {
     archivo: "",
     portada: "",
     registro: 0,
-    estado: 0,
+    estado: false,
     genero: {
       id: 0,
       nombre: ""
     },
     usuario: {
       id: 0
-    }
+    },
+    isLiked: false,
+    isFavorite: false
   }
 
 
@@ -42,7 +46,7 @@ export class LibrosComponent implements OnInit {
   portada: File;
 
 
-  constructor(private g: GeneroService, private l: LibrosService) {
+  constructor(private g: GeneroService, private l: LibrosService, private tokenService: TokenService, private router:Router) {
 
   }
 
@@ -53,6 +57,9 @@ export class LibrosComponent implements OnInit {
   ngOnInit() {
     this.g.listarGenero().subscribe(x => {
       this.genero = x
+      this.libro.usuario.id = this.tokenService.getIdUsuario();
+      console.log("Usuario: "+ this.libro.usuario.id);
+
       console.log(x)
     })
   }
@@ -67,13 +74,20 @@ export class LibrosComponent implements OnInit {
 
 
 
-  mapEstado(estado: string): number {
-    return estado === 'Activo' ? 1 : 2;
+  mapEstado(estado: string): boolean {
+    return estado === 'Activo' ? true : false;
+   
   }
 
 
   registrar() {
     /*this.libro.titulo = `${this.libro.titulo}`;*/
+
+    let estadoActual = `${this.libro.estado}`;
+    this.libro.estado = this.mapEstado(estadoActual);
+
+    console.log(estadoActual);
+    console.log(this.libro.estado);
     
     this.l.registrarLibro(this.libro, this.archivo, this.portada)
       .subscribe(
@@ -81,6 +95,7 @@ export class LibrosComponent implements OnInit {
           // Éxito al registrar
           console.log(response);
           Swal.fire('¡Registrado correctamente!', '', 'success');
+          this.router.navigate(['inicio/librostabla']); 
         },
         error => {
           // Manejar error
@@ -92,57 +107,9 @@ export class LibrosComponent implements OnInit {
 
 
 
+
+
+
 }
-
-
-
-
-
-/*
-onFileImage(event: any): void {
-  this.selectedImage = event.target.files[0] ?? null;
-}
-
-onFileDocument(event: any): void {
-  this.selectedDocument = event.target.files[0] ?? null;
-}
-
-*/
-
-
-/*
-  registrar(){
-    
-    console.log("codigo usuario "+this.libro.usuario.id)
-   
-
-    let estadoActual = `${this.libro.estado}`;
-
-    this.libro.estado = this.mapEstado(estadoActual);
-    
-    console.log(estadoActual);
-    console.log("codigo estado "+this.libro.estado);
-    
-
-    if (this.selectedDocument) {
-      this.libro.archivo = this.selectedDocument.name; 
-      console.log("Archivo "+this.libro.archivo);
-    }
-  
-    if (this.selectedImage) {
-      this.libro.portada = this.selectedImage.name;
-      console.log("Portada "+this.libro.portada);
-    }
-
-    this.l.registrarLibro(this.libro, this.archivo, this.portada).subscribe((response)=> {
-      console.log('Libro registrado', response);
-    },
-    (error) => {
-      console.error('Error', error)
-    })
-  }
-
-*/
-
 
 

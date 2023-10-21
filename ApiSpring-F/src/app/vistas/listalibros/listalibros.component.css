@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .container{
+    margin-top: 4vh; 
+    margin-bottom: 4vh;
+  }
+
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+
+  
+  @media (max-width: 1200px) {
+    .table-responsive {
+      overflow-x: auto;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .d-none.d-md-table-cell {
+      display: none !important;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .d-none.d-md-table-cell {
+      display: table-cell !important;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .d-none.d-md-table-cell {
+      display: none !important;
+    }
+  }
+  

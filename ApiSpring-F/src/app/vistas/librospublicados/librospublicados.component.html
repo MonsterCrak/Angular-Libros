@@ -1,23 +1,28 @@
 
 <div class="container">
-    <div class="card-container">
-        <mat-card class="example-card" *ngFor="let libro of libropublicados">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ libro.usuario.nombre }}</mat-card-title>
-            <mat-card-subtitle>{{ libro.titulo }}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="{{libro.portada}}" alt="Portada">
-          <mat-card-content>
-            <p>
-              {{libro.descripcion}}
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Me gusta</button>
-            <button mat-button>Favorito</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+  <div class="card-container">
+    <mat-card class="example-card" *ngFor="let libro of libropublicados">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ libro.usuario.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ libro.titulo }}</mat-card-subtitle>
+        <mat-card-subtitle hidden>{{ libro.id }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="libro.portada" alt="Portada">
+      <mat-card-content>
+        <p>
+          {{libro.descripcion}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="actions-container">
+        <button mat-icon-button [color]="libro.isLiked ? 'warn' : ''" (click)="toggleLike(libro)"><mat-icon>favorite</mat-icon></button>
+<button mat-icon-button [color]="libro.isFavorite ? 'primary' : ''" (click)="toggleFavorite(libro)"><mat-icon>bookmark</mat-icon></button>
+
+        <button mat-icon-button disabled=""><mat-icon>open_in_new</mat-icon></button>
+      </mat-card-actions>
       
+    </mat-card>
+    
+  </div>
+
 </div>
