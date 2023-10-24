@@ -16,7 +16,8 @@ children:[
   { path: 'navigation', component: NavigationComponent},
   { path: 'libros', component: LibrosComponent},
   { path: 'publicaciones', component: LibrospublicadosComponent},
-  { path: 'librostabla', component: ListalibrosComponent}
+  { path: 'librostabla', component: ListalibrosComponent},
+  {path: 'libros/:id', component: LibrosComponent}
 ]},
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }

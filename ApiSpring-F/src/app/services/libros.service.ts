@@ -12,13 +12,8 @@ export class LibrosService {
 
   constructor(private http: HttpClient) { }
 
-  /*
-  registrarLibro(libro: Libro): Observable<Libro> {
-    return this.http.post<Libro>(`${this.host}/registrar`, libro);
-  }
-  */
 
-  registrarLibro(libro: Libro, archivo: File, portada: File){
+  public registrarLibro(libro: Libro, archivo: File, portada: File){
 
     const formData = new FormData();
   
@@ -36,7 +31,34 @@ export class LibrosService {
   
   }
 
+  public actualizarLibro(libro: Libro, archivo: File, portada: File) {
+    const formData = new FormData();
+  
+    formData.append('archivo', archivo);
+    formData.append('portada', portada);
+    formData.append('titulo', libro.titulo);
+    formData.append('descripcion', libro.descripcion);
+    formData.append('autor', libro.autor);
+    formData.append('estado', libro.estado ? '1' : '0');
+    formData.append('idGenero', libro.genero.id.toString());
+    formData.append('idUsuario', libro.usuario.id.toString());
+    formData.append('idLibro', libro.id.toString());
+  
+    return this.http.put(`${this.host}/actualizar`, formData);
+  }
+  
+
+  public buscarLibro(codigo: number): Observable<Libro> {
+    const url = `${this.host}/buscar/${codigo}`;
+    return this.http.get<Libro>(url);
+  }
+
+
   public listarLibros():Observable<Libro[]>{
     return this.http.get<Libro[]>(this.host+"/lista");
   }
+
+  
+
+
 }

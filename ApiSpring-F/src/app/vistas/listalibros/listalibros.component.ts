@@ -6,6 +6,7 @@ import { Libro } from 'src/app/Modelos/Libro';
 import { LibrosService } from 'src/app/services/libros.service';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ListalibrosComponent implements OnInit {
 
 
 
-  constructor(private l: LibrosService) {}
+  constructor(private l: LibrosService, private router:Router) {}
 
 
 
@@ -49,7 +50,8 @@ export class ListalibrosComponent implements OnInit {
 
 
   editarLibro(libro: Libro) {
-    // Aquí puedes implementar la lógica para editar el libro
+    this.router.navigate(['/inicio/libros/', libro.id]);
+
     console.log(`Editar libro con ID: ${libro.id}`);
   }
   
