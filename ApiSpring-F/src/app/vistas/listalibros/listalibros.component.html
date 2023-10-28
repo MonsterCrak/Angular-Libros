@@ -14,7 +14,8 @@
 
     <mat-form-field>
       <mat-label>Busqueda</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese su busqueda" #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese su busqueda" #inputBusqueda>
+
     </mat-form-field>
 
     <div class="">
@@ -68,8 +69,10 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="5">No se encontro "{{input.value}}"</td>
+            <td class="mat-cell" colspan="5" *ngIf="!noHayRegistros">No se encontró "{{inputBusqueda.value}}"</td>
+            <td class="mat-cell" colspan="5" *ngIf="noHayRegistros">Sin registros</td>
           </tr>
+          
 
         </table>
       </div>
@@ -79,3 +82,10 @@
   </div>
 </div>
 
+
+
+<pdf-viewer [src]="pdfSrc"
+[render-text]="true"
+[original-size]="false"
+style="width: 1200px; height: 1500px"
+></pdf-viewer>

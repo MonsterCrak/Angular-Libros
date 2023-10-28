@@ -16,9 +16,9 @@
       </mat-card-content>
       <mat-card-actions class="actions-container">
         <button mat-icon-button [color]="libro.isLiked ? 'warn' : ''" (click)="toggleLike(libro)"><mat-icon>favorite</mat-icon></button>
-<button mat-icon-button [color]="libro.isFavorite ? 'primary' : ''" (click)="toggleFavorite(libro)"><mat-icon>bookmark</mat-icon></button>
+<button mat-icon-button [color]="libro.isFavorite ? 'accent' : ''" (click)="toggleFavorite(libro)"><mat-icon>bookmark</mat-icon></button>
 
-        <button mat-icon-button disabled=""><mat-icon>open_in_new</mat-icon></button>
+        <button mat-icon-button color="primary"><mat-icon>open_in_new</mat-icon></button>
       </mat-card-actions>
       
     </mat-card>

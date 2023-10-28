@@ -58,7 +58,10 @@ export class LibrosService {
     return this.http.get<Libro[]>(this.host+"/lista");
   }
 
-  
+  public eliminarLibro(id: number): Observable<any> {
+    const url = `${this.host}/eliminar/${id}`;
+    return this.http.delete(url);
+  }
 
 
 }

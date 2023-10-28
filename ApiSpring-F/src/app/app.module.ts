@@ -28,6 +28,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from "@angular/material/sort";
 import { ListalibrosComponent } from './vistas/listalibros/listalibros.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { VerLibroComponent } from './vistas/ver-libro/ver-libro.component';
 
 
 
@@ -42,7 +44,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     InicioComponent,
     LibrosComponent,
     LibrospublicadosComponent,
-    ListalibrosComponent
+    ListalibrosComponent,
+    VerLibroComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatTableModule, 
     MatPaginatorModule, 
     MatSortModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    PdfViewerModule
 
   ],
   providers: [],
