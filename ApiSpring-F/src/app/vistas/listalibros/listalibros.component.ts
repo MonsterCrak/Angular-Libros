@@ -44,7 +44,7 @@ export class ListalibrosComponent implements OnInit {
     });
   }
 
-  pdfSrc = "http://localhost:8092/api/libro/archivos/pdfs/4-a.pdf";
+  pdfSrc = "enlacepdf";
 
 
   applyFilter(event: Event) {

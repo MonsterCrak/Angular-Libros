@@ -30,6 +30,10 @@ import { ListalibrosComponent } from './vistas/listalibros/listalibros.component
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { VerLibroComponent } from './vistas/ver-libro/ver-libro.component';
+import { RegistrarComponent } from './vistas/registrar/registrar.component';
+import { PerfilComponent } from './vistas/perfil/perfil.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PrevisualisarLibroComponent } from './vistas/previsualisar-libro/previsualisar-libro.component';
 
 
 
@@ -45,7 +49,10 @@ import { VerLibroComponent } from './vistas/ver-libro/ver-libro.component';
     LibrosComponent,
     LibrospublicadosComponent,
     ListalibrosComponent,
-    VerLibroComponent
+    VerLibroComponent,
+    RegistrarComponent,
+    PerfilComponent,
+    PrevisualisarLibroComponent
   ],
   imports: [
     BrowserModule,
@@ -68,8 +75,8 @@ import { VerLibroComponent } from './vistas/ver-libro/ver-libro.component';
     MatPaginatorModule, 
     MatSortModule,
     MatFormFieldModule,
-    PdfViewerModule
-
+    PdfViewerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

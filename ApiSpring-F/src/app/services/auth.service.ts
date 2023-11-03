@@ -7,33 +7,30 @@ import { Observable, tap } from 'rxjs';
 import { LoginUsuario } from '../Modelos/LoginUsuario';
 import { JwtDto } from '../Modelos/jwt-dto';
 import { TokenService } from './token.service';
+import { Usuario } from '../Modelos/Usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  host:string="http://localhost:8092/api/"
+  host: string = "http://localhost:8092/api/"
 
-  constructor(private http:HttpClient, private tokenServices: TokenService) { }
+  constructor(private http: HttpClient, private tokenServices: TokenService) { }
 
-  public login(user:LoginUsuario):Observable<any>{
-    return this.http.post<JwtDto>(this.host+"login",user).pipe(tap(data=>{
+  public login(user: LoginUsuario): Observable<any> {
+    return this.http.post<JwtDto>(this.host + "login", user).pipe(tap(data => {
       this.tokenServices.setIdUsuario(data.idUsuario);
     }))
   }
-  
-  /*
-  public registrar(user:Usuario):Observable<any>{
-    return this.http.post<Usuario>(this.host+"registrar",user)
-  }
-  */
+
+
   /*
   public recuperar(user:RecuperarUsuario):Observable<any>{
     return this.http.post<string>(this.host+"recuperar",user)
   }
   */
-  public enviarCorreo(correo:string):Observable<any>{
-    return this.http.post<string>(this.host+"mail/"+correo,null)
+  public enviarCorreo(correo: string): Observable<any> {
+    return this.http.post<string>(this.host + "mail/" + correo, null)
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Libro } from 'src/app/Modelos/Libro';
 import { LibrosService } from 'src/app/services/libros.service';
+import { PrevisualisarLibroComponent } from '../previsualisar-libro/previsualisar-libro.component';
 
 
 @Component({
@@ -8,15 +10,27 @@ import { LibrosService } from 'src/app/services/libros.service';
   templateUrl: './librospublicados.component.html',
   styleUrls: ['./librospublicados.component.css'],
 })
-export class LibrospublicadosComponent implements OnInit  {
+export class LibrospublicadosComponent implements OnInit {
 
-  libropublicados : Libro []= []
+  libropublicados: Libro[] = []
 
   isLiked: boolean = false;
 
   isFavorite: boolean = false;
 
-  constructor(private l: LibrosService) {}
+  constructor(
+    private l: LibrosService,
+    public dialog: MatDialog
+  ) { }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(PrevisualisarLibroComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
   ngOnInit() {
     this.l.listarLibros().subscribe(libros => {
@@ -29,13 +43,13 @@ export class LibrospublicadosComponent implements OnInit  {
     libro.isLiked = !libro.isLiked;
     console.log(`Like status for libro ${libro.id}: ${libro.isLiked ? 'true' : 'false'}`);
   }
-  
+
 
   toggleFavorite(libro: Libro) {
     libro.isFavorite = !libro.isFavorite;
     console.log(`Favorite status for libro ${libro.id}: ${libro.isFavorite ? 'true' : 'false'}`);
   }
-  
+
 
 
 

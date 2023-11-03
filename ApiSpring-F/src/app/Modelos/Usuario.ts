@@ -3,7 +3,9 @@ import { Rol } from "./Rol"
 
 export class Usuario {
     id: number 
-    nombre?: string 
+    nombre?: string
+    paterno?: string 
+    materno?: string
     email?: string 
     clave?: string
     registro?: string

@@ -10,19 +10,22 @@
       </mat-card-header>
       <img mat-card-image [src]="libro.portada" alt="Portada">
       <mat-card-content>
-        <p>
+        <!--p>
           {{libro.descripcion}}
-        </p>
+        </p-->
       </mat-card-content>
       <mat-card-actions class="actions-container">
         <button mat-icon-button [color]="libro.isLiked ? 'warn' : ''" (click)="toggleLike(libro)"><mat-icon>favorite</mat-icon></button>
 <button mat-icon-button [color]="libro.isFavorite ? 'accent' : ''" (click)="toggleFavorite(libro)"><mat-icon>bookmark</mat-icon></button>
 
-        <button mat-icon-button color="primary"><mat-icon>open_in_new</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="openDialog()"><mat-icon>open_in_new</mat-icon></button>
       </mat-card-actions>
       
     </mat-card>
     
   </div>
-
 </div>
+
+
+
+
